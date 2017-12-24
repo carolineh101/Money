@@ -20,23 +20,59 @@
           </div>
           <div class="modal-body">
             <p>HA! You thought you could access this video for free? Think again, suckers – you'll never be able to get past my incredibly secure and powerful paywall!</p>
-            <p><b>Price: $1*</b></p>
-            <br></br>
-            <p>*Okay, in all seriousness, this isn't a very sophisticated paywall and you don't have to pay anything if you don't want to.</p>
           </div>
           <div class="modal-footer">
-            <a target="_blank" class="btn btn-primary" href="paypal.me/CarolineHo/1" role="button" data-dismiss="modal">Access Content</a>
+            <button type="button" class="btn btn-primary" onclick="cont()">Access Content</button>
           </div>
         </div>
       </div>
     </div>
-	  
-    <iframe width="640" height="390" src="https://www.youtube.com/embed/rwPM01cbQBc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#paywall').modal('show');
+	
+    <div id="player"></div>	
+	
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'rwPM01cbQBc',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
         });
+      }
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for 0 seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 0);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.pauseVideo();
+	$("#paywall").modal();
+      }
+      function cont() {
+	window.open("paypal.me/CarolineHo/1");
+	$("#paywall").modal("hide");
+        player.playVideo();
+      }
     </script>
 	  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
