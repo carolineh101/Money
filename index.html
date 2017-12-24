@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Money</title>
+    <meta name="description" content="The authentic &quot;Money&quot; experience.">
+    <meta name="author" content="Caroline Ho">
+	  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  
+  <body>
+	  
+    <!-- Modal -->
+    <div class="modal fade" id="paywall" tabindex="-1" role="dialog" aria-labelledby="Paywall" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="paywallTitle">Give Me Money</h5>
+          </div>
+          <div class="modal-body">
+            <p>HA! You thought you could access this video for free? Think again, suckers – you'll never be able to get past my incredibly secure and powerful paywall!</p>
+            <p><b>Price: $1*</b></p>
+            <br></br>
+            <p>*Okay, in all seriousness, this isn't a very sophisticated paywall and you don't have to pay anything if you don't want to.</p>
+          </div>
+          <div class="modal-footer">
+            <a target="_blank" class="btn btn-primary" href="paypal.me/CarolineHo/1" role="button" data-dismiss="modal">Access Content</a>
+          </div>
+        </div>
+      </div>
+    </div>
+	  
+    <iframe width="640" height="390" src="https://www.youtube.com/embed/rwPM01cbQBc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    
+    <script type="text/javascript">
+        $(window).on('load',function(){
+            $('#paywall').modal('show');
+        });
+    </script>
+	  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
